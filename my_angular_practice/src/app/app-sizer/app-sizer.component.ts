@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-app-sizer',
@@ -7,9 +7,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppSizerComponent implements OnInit {
 
+  @Input() size: number = 10;
+
+  @Output() sizeChange = new EventEmitter<number>();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  dec(){
+    this.resize(-1);
+  }
+
+  inc(){
+    this.resize(+1);
+  }
+
+  resize(delta:number){
+    this.size = Math.min(40, Math.max(8, +this.size + delta));
+    this.sizeChange.emit(this.size);
   }
 
 }
