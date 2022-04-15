@@ -1,0 +1,4 @@
+app folder:
+
+ng g c parent
+ng g c child

@@ -9,3 +9,6 @@ ng serve
 
 cd my-app
 https://github.com/angular/quickstart
+
+# Create a custom events
+ng g c item-details
